@@ -7,8 +7,8 @@ import Layout from '@/layouts/Layout.astro';
   <main class="h-screen col-fcc">
     <div class="op-30">请输入被邀请的手机号</div>
     <div id="input_container" class="flex mt-4">
-      <input id="password_input" class="phoneInput" class="mr10" size="large" placeholder="请输入手机号" />
-      <div id="submit" class="submit">登录</div>
+      <input id="password_input" class="phoneInput" size="large" placeholder="请输入手机号" />
+      <div id="submit" class="ml10 submit">登录</div>
     </div>
   </main>
 </Layout>
@@ -90,12 +90,18 @@ async function handleSubmit() {
     font-size: 14px;
 }
 .submit {
-    background-color: #fff;
+    background-color: #4081ff;
     border-color: #d9d9d9;
     box-shadow: 0 2px 0 rgba(0,0,0,.02);
+    color: #fff;
     font-size: 14px;
     height: 42px;
+    line-height: 42px;
     padding: 4px 15px;
     border-radius: 6px;
+    text-align: center;
+}
+.ml10 {
+  margin-left: 10px;
 }
 </style>
