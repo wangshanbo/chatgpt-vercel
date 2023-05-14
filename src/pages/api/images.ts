@@ -17,7 +17,7 @@ export const post: APIRoute = async ({ request }) => {
   const body = await request.json();
   const { prompt, model, size = '256x256', n = 1, password } = body;
   let { key } = body;
-
+  key = import.meta.env.OPENAI_API_KEY || process.env.OPENAI_API_KEY;
   if (!key) {
     const next = loadBalancer(apiKeys, apiKeyStrategy);
     key = next();

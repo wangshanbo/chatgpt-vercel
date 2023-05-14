@@ -41,7 +41,7 @@ export const supportedLanguages = [
 
 export const defaultGloablConfig: GlobalConfig = {
   password: '',
-  openAIApiKey: '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',
+  openAIApiKey: '',
   model: defaultModel,
   imageModel: defaultImageModel,
   save: true,
