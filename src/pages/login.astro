@@ -1,15 +1,15 @@
 ---
 import Layout from '@/layouts/Layout.astro';
+import { Input, Button } from 'antd';
+
 ---
 
 <Layout title="Password Protection">
   <main class="h-screen col-fcc">
     <div class="op-30">请输入被邀请的手机号</div>
     <div id="input_container" class="flex mt-4">
-      <input id="password_input" type="text" class="gpt-password-input" />
-      <div id="submit" class="gpt-password-submit">
-        <div class="i-carbon-arrow-right" />
-      </div>
+      <Input id="password_input" class="mr10" size="large" placeholder="large size" />
+      <Button id="submit" size="large" type="primary">登录</Button>
     </div>
   </main>
 </Layout>
@@ -67,5 +67,18 @@ async function handleSubmit() {
 
 .invalid {
   animation: shake 0.2s ease-in-out 0s 2;
+}
+
+.col-fcc {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.op-30 {
+  margin-bottom: 10px;
+}
+.mr10 {
+  margin-right: 10px;
 }
 </style>
