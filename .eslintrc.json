@@ -7,6 +7,15 @@
   },
   "extends": ["eslint:recommended", "airbnb-base", "prettier"],
   "plugins": ["import", "prettier"],
+  "rules": {
+    "prettier/prettier": "error",
+    "import/no-unresolved": 0,
+    "import/extensions": 0,
+    "import/prefer-default-export": 0,
+    "import/no-extraneous-dependencies": 0,
+    "no-await-in-loop": 0,
+    "no-continue": 0
+  },
   "overrides": [
     {
       "files": ["*.astro"],
