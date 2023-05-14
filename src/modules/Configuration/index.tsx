@@ -56,7 +56,7 @@ const Configuration: FC<ConfigurationProps> = ({
         </div>
       </div>
       <div className="pl-5 pr-5 pt-4 pb-4 text-sm flex flex-1 flex-col overflow-auto common-scrollbar">
-        <div className="mb-6">
+        {/* <div className="mb-6">
           <div className="mb-2">{i18n.config_password}</div>
           <Input
             className="w-full"
@@ -79,7 +79,7 @@ const Configuration: FC<ConfigurationProps> = ({
               updateConfigsAndStorages({ openAIApiKey: e.target.value })
             }
           />
-        </div>
+        </div> */}
         {/* <div className="flex items-center justify-between mb-6">
           <div>{i18n.config_language}</div>
           <Select
@@ -89,7 +89,7 @@ const Configuration: FC<ConfigurationProps> = ({
             onChange={(lang) => updateConfigsAndStorages({ lang })}
           />
         </div> */}
-        <div className="flex items-center justify-between">
+        {/* <div className="flex items-center justify-between">
           <div>{i18n.config_save}</div>
           <Switch
             className={
@@ -100,7 +100,7 @@ const Configuration: FC<ConfigurationProps> = ({
             checked={configs.save}
             onChange={(save) => updateConfigsAndStorages({ save })}
           />
-        </div>
+        </div> */}
         <Divider className="!mt-6 !mb-6" orientation="left" plain>
           {i18n.chat_mode_text}
         </Divider>
@@ -113,6 +113,7 @@ const Configuration: FC<ConfigurationProps> = ({
               label: model,
               value: model,
             }))}
+            disabled={true}
             onChange={(model) => updateConfigsAndStorages({ model })}
           />
         </div>
@@ -191,7 +192,7 @@ const Configuration: FC<ConfigurationProps> = ({
             className="w-full"
             disabled={configs.imageModel === 'Midjourney'}
             min={1}
-            max={10}
+            max={4}
             step={1}
             defaultValue={1}
             value={configs.imagesCount}
