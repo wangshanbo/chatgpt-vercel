@@ -1,6 +1,5 @@
 ---
 import Layout from '@/layouts/Layout.astro';
-import { Input, Button } from 'antd';
 
 ---
 
@@ -8,8 +7,8 @@ import { Input, Button } from 'antd';
   <main class="h-screen col-fcc">
     <div class="op-30">请输入被邀请的手机号</div>
     <div id="input_container" class="flex mt-4">
-      <Input id="password_input" class="mr10" size="large" placeholder="large size" />
-      <Button id="submit" size="large" type="primary">登录</Button>
+      <input id="password_input" class="phoneInput" class="mr10" size="large" placeholder="请输入手机号" />
+      <div id="submit" class="submit">登录</div>
     </div>
   </main>
 </Layout>
@@ -80,5 +79,23 @@ async function handleSubmit() {
 }
 .mr10 {
   margin-right: 10px;
+}
+
+.phoneInput {
+    width: 200px;
+    height: 42px;
+    padding: 4px 8px;
+    border-radius: 6px;
+    border: 1px solid #d9d9d9;
+    font-size: 14px;
+}
+.submit {
+    background-color: #fff;
+    border-color: #d9d9d9;
+    box-shadow: 0 2px 0 rgba(0,0,0,.02);
+    font-size: 14px;
+    height: 42px;
+    padding: 4px 15px;
+    border-radius: 6px;
 }
 </style>
