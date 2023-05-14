@@ -50,7 +50,7 @@ export const defaultGloablConfig: GlobalConfig = {
   temperature: 1,
   imagesCount: 1,
   imageSize: '256x256',
-  lang: 'en',
+  lang: 'zh',
 };
 
 export const defaultConversation: Conversation = {
