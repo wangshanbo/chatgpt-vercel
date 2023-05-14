@@ -80,7 +80,7 @@ const Configuration: FC<ConfigurationProps> = ({
             }
           />
         </div>
-        <div className="flex items-center justify-between mb-6">
+        {/* <div className="flex items-center justify-between mb-6">
           <div>{i18n.config_language}</div>
           <Select
             className="w-1/2"
@@ -88,7 +88,7 @@ const Configuration: FC<ConfigurationProps> = ({
             options={supportedLanguages}
             onChange={(lang) => updateConfigsAndStorages({ lang })}
           />
-        </div>
+        </div> */}
         <div className="flex items-center justify-between">
           <div>{i18n.config_save}</div>
           <Switch
