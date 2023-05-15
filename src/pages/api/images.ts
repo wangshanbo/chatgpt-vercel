@@ -65,6 +65,8 @@ export const post: APIRoute = async ({ request }) => {
         n,
       }),
     });
+    console.log(image, 'image');
+    
     const data = await image.json();
 
     const { data: images = [], error } = data;

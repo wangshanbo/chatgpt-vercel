@@ -216,8 +216,8 @@ const Content: FC<ContentProps> = ({ setActiveSetting }) => {
           model: configs.imageModel,
         }),
       });
+      console.log(res,'res');
       const { data = [], msg } = await res.json();
-
       if (res.status < 400) {
         const params = new URLSearchParams(data?.[0]);
         const expiredAt = params.get('se');
