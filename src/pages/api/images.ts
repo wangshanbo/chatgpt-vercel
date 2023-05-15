@@ -46,6 +46,7 @@ export const post: APIRoute = async ({ request }) => {
         width: Number(len),
         height: Number(len),
       });
+      console.log(data, 'data');
       return new Response(
         JSON.stringify({
           data: data ?? [],
@@ -65,12 +66,8 @@ export const post: APIRoute = async ({ request }) => {
         n,
       }),
     });
-    console.log(image, 'image');
-    
     const data = await image.json();
-
     const { data: images = [], error } = data;
-
     // error from openapi
     if (error?.message) {
       throw new Error(error.message);
