@@ -50,12 +50,15 @@ const RecordCard: FC<RecordCardProps> = ({
           className={`sidebar-record-item-mode ${contentClass} w-[60px] text-right`}
         >
           {data.mode === 'image' ? (
-            <i className="ri-image-line align-bottom" />
+            <i className="ri-image-line" />
+          ) : data.mode === 'video' ? (
+            <i className="ri-video-line" />
           ) : (
-            <i className="ri-chat-4-line align-bottom" />
+            <i className="ri-chat-4-lin" />
           )}
         </div>
       </div>
+      {/* ri-video-line */}
       {onDelete ? (
         <div
           className={`sidebar-record-item-delete absolute p-2 right-0 top-3 ${contentClass} hidden `}

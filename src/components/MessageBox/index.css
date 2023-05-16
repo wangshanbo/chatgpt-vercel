@@ -1,3 +1,7 @@
-.message-box:hover + .message-box-time {
+.message-box-time {
+  color: #111 !important;
+}
+
+.message-box:hover+.message-box-time {
   visibility: visible;
 }

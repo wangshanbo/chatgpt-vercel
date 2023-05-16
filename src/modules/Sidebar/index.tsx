@@ -14,7 +14,7 @@ const Sidebar: FC<{
   const [keyword, setKeyword] = useState('');
   // import modal
   const [visible, setVisible] = useState(false);
-  const password = localStorage.getItem("pass");
+  const password = localStorage.getItem('pass');
   const { i18n, currentId, setCurrentId, conversations, setConversations } =
     useContext(GlobalContext);
 
@@ -51,16 +51,27 @@ const Sidebar: FC<{
         </div>
       ),
     },
-    password != '17706712105' ?
-      {
-        key: '2',
-        label: (
-          <div onClick={() => onAdd('image')}>
-            <i className="ri-image-line align-bottom mr-1" />
-            {i18n.action_add_image}
-          </div>
-        ),
-      } : null,
+    password != '17706712105'
+      ? {
+          key: '2',
+          label: (
+            <div onClick={() => onAdd('image')}>
+              <i className="ri-image-line align-bottom mr-1" />
+              {i18n.action_add_image}
+            </div>
+          ),
+        }
+      : null,
+    // password != '17706712105' ?
+    //   {
+    //     key: '4',
+    //     label: (
+    //       <div onClick={() => onAdd('video')}>
+    //         <i className="ri-image-line align-bottom mr-1" />
+    //         {i18n.action_add_video}
+    //       </div>
+    //     ),
+    //   } : null,
     {
       key: '3',
       label: (

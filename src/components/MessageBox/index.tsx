@@ -36,7 +36,7 @@ const MessageItem: FC<{ message: Message; index?: number }> = ({
       />
       {createdAt ? (
         <div
-          className={`message-box-time hover:visible invisible text-[#a1a7a8] text-sm absolute top-[-20px] ${
+          className={`message-box-time hover:visible  text-[#a1a7a8] text-sm absolute top-[-20px] ${
             message.role === 'user' ? 'right-0' : 'left-[calc(32px+0.5rem)]'
           }`}
         >
@@ -91,6 +91,8 @@ const MessageBox: FC<{
             __html: markdown.render(
               mode === 'image'
                 ? i18n.default_image_tips
+                : mode === 'video'
+                ? i18n.default_video_tips
                 : i18n.default_text_tips
             ),
           }}

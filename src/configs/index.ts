@@ -16,8 +16,12 @@ export const supportedModels = [
 export type SupportedModel = (typeof supportedModels)[number];
 
 export const defaultModel: SupportedModel = 'gpt-3.5-turbo';
-
-export const supportedImageModels = ['DALL-E', 'Midjourney'] as const;
+// 'deforum_stable_diffusion'
+export const supportedImageModels = [
+  'DALL-E',
+  'Midjourney',
+  'kandinsky-2',
+] as const;
 
 export type SupportedImageModels = (typeof supportedImageModels)[number];
 

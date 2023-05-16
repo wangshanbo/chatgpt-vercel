@@ -1,6 +1,7 @@
 {
   "default_text_tips": "Chat with us now. Press `Enter` to send and `Shift`+`Enter` to add a new line. \n- Input `/` or click the button at the bottom left to add a preset prompt",
   "default_image_tips": "Chat with us now. Press `Enter` to send and `Shift`+`Enter` to add a new line. \n- The image generation does not support continuous dialogue. Please input directly the desired image effect, for example: `a cat`.\n- For model `DALL-E`, the effective access time for the image link is `2` hours. Please make sure to save it in time if necessary.\n- For model `Midjourney`, it is recommended to add the prefix `mdjrny-v4 style`",
+  "default_video_tips": "Chat with us now. Press `Enter` to send and `Shift`+`Enter` to add a new line. \n- The video generation does not support continuous dialogue. Please input directly the desired video effect, for example: `a cat`.",
   "chat_placeholder": "Start a conversation",
   "empty_conversation": "Please select a conversation",
   "search_placeholder": "Search",
@@ -14,6 +15,7 @@
   "action_ok": "OK",
   "action_add_text": "Create a text conversation",
   "action_add_image": "Create a image generation conversation",
+  "action_add_video": "Create a video generation conversation",
   "action_import": "Import a conversation",
   "configuration": "Configurations",
   "config_model": "Model:",

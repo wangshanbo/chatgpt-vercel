@@ -260,6 +260,75 @@ const Content: FC<ContentProps> = ({ setActiveSetting }) => {
     }));
   };
 
+  // video
+  const sendVideoChatMessages = async (content: string) => {
+    const current = currentId;
+    const allMessages: Message[] = messages.concat([
+      {
+        role: 'user',
+        content,
+        createdAt: Date.now(),
+      },
+    ]);
+    updateMessages(allMessages);
+    setText('');
+    setLoadingMap((map) => ({
+      ...map,
+      [current]: true,
+    }));
+    try {
+      const res = await fetch('/api/videos', {
+        method: 'POST',
+        body: JSON.stringify({
+          prompt: content,
+          password: configs.password,
+        }),
+      });
+
+      console.log(res, 'res');
+      const { data = [], msg } = await res.json();
+      if (res.status < 400) {
+        const params = new URLSearchParams(data?.[0]);
+        const expiredAt = params.get('se');
+        updateMessages(
+          allMessages.concat([
+            {
+              role: 'assistant',
+              content: data.map((url) => `![](${url})`).join('\n'),
+              createdAt: Date.now(),
+              expiredAt: new Date(expiredAt).getTime(),
+            },
+          ])
+        );
+      } else {
+        updateMessages(
+          allMessages.concat([
+            {
+              role: 'assistant',
+              content: `[${res.status}]Error: ${msg || 'Unknown'}`,
+              createdAt: Date.now(),
+            },
+          ])
+        );
+      }
+    } catch (e) {
+      updateMessages(
+        allMessages.concat([
+          {
+            role: 'assistant',
+            content: `Error: ${e.message || e.stack || e}`,
+            createdAt: Date.now(),
+          },
+        ])
+      );
+    }
+    setLoadingMap((map) => ({
+      ...map,
+
+      [current]: false,
+    }));
+  };
+
   return (
     <div className="flex flex-col h-full w-full">
       <ContentHeader
@@ -285,8 +354,10 @@ const Content: FC<ContentProps> = ({ setActiveSetting }) => {
         onSubmit={async (message: string) => {
           if (mode === 'image') {
             sendImageChatMessages(message);
-          } else {
+          } else if (mode === 'text') {
             sendTextChatMessages(message);
+          } else {
+            sendVideoChatMessages(message);
           }
         }}
         onCancel={stopGenerate}

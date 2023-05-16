@@ -193,6 +193,7 @@ const Configuration: FC<ConfigurationProps> = ({
             min={1}
             max={4}
             step={configs.imageModel === 'Midjourney' ? 4 : 1}
+            disabled={configs.imageModel === 'kandinsky-2'}
             defaultValue={1}
             value={configs.imagesCount}
             onChange={(imagesCount) =>

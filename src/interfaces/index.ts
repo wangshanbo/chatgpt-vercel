@@ -11,7 +11,7 @@ export interface Message {
   expiredAt?: number; // for image mode
 }
 
-export type ConversationMode = 'text' | 'image';
+export type ConversationMode = 'text' | 'image' | 'video';
 
 export type StrategyMode = 'polling' | 'random';
 

@@ -59,6 +59,44 @@ export const post: APIRoute = async ({ request }) => {
         }),
         { status: 200 }
       );
+    } else if ((model as SupportedImageModels) === 'kandinsky-2') {
+      const replicate = new Replicate({
+        auth: process.env.REPLICATE_API_TOKEN,
+      });
+
+      const model =
+        'ai-forever/kandinsky-2:601eea49d49003e6ea75a11527209c4f510a93e2112c969d548fbb45b9c4f19f';
+
+      const input = {
+        prompt,
+        width: Number(size.split('x')[0]),
+        height: Number(size.split('x')[1]),
+      };
+      const data = await replicate.run(model, { input });
+      return new Response(
+        JSON.stringify({
+          data: data ? data : [],
+        }),
+        { status: 200 }
+      );
+    } else if ((model as SupportedImageModels) === 'deforum_stable_diffusion') {
+      const replicate = new Replicate({
+        auth: process.env.REPLICATE_API_TOKEN,
+      });
+
+      const model =
+        'deforum/deforum_stable_diffusion:e22e77495f2fb83c34d5fae2ad8ab63c0a87b6b573b6208e1535b23b89ea66d6';
+
+      const input = {
+        animation_prompts: prompt,
+      };
+      const data = await replicate.run(model, { input });
+      return new Response(
+        JSON.stringify({
+          data: data ? [data] : [],
+        }),
+        { status: 200 }
+      );
     } else {
       const image = await fetch(`https://${baseURL}/v1/images/generations`, {
         headers: {
