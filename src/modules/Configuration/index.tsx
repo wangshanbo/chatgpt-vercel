@@ -190,10 +190,9 @@ const Configuration: FC<ConfigurationProps> = ({
           <div className="mb-2">{i18n.config_images_count}</div>
           <Slider
             className="w-full"
-            disabled={configs.imageModel === 'Midjourney'}
             min={1}
             max={4}
-            step={1}
+            step={configs.imageModel === 'Midjourney' ? 4 : 1}
             defaultValue={1}
             value={configs.imagesCount}
             onChange={(imagesCount) =>

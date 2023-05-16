@@ -19,7 +19,7 @@ export const apiBaseUrl =
 // use proxy in local env
 export const baseURL = (
   process.env.NODE_ENV === 'development' && !disableProxy
-    ? localProxy
+    ? localProxy || 'api.openai.com'
     : apiBaseUrl
 )?.replace(/^https?:\/\//i, '');
 

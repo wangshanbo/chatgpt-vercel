@@ -37,7 +37,6 @@ export const post: APIRoute = async ({ request }) => {
       status: 400,
     });
   }
-
   try {
     if ((model as SupportedImageModels) === 'Midjourney') {
       const replicate = new Replicate({
@@ -45,8 +44,14 @@ export const post: APIRoute = async ({ request }) => {
       });
 
       const model =
-        'stability-ai/stable-diffusion:db21e45d3f7023abc2a46ee38a23973f6dce16bb082a930b0c49861f96d1e5bf';
-      const input = { prompt };
+        'prompthero/openjourney:9936c2001faa2194a261c01381f90e65261879985476014a0a37a334593a05eb';
+
+      const input = {
+        prompt,
+        num_outputs: Number(n),
+        width: Number(size.split('x')[0]),
+        height: Number(size.split('x')[1]),
+      };
       const data = await replicate.run(model, { input });
       return new Response(
         JSON.stringify({
