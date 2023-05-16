@@ -6,7 +6,7 @@ import { hasMathJax, initMathJax, renderMaxJax } from '@utils/markdown';
 import { hasMath } from '@utils';
 import MessageInput from './MessageInput';
 import ContentHeader from './ContentHeader';
-import { createOpenjourney } from 'replicate-fetch';
+
 interface ContentProps {
   setActiveSetting: ReactSetState<boolean>;
 }
@@ -140,8 +140,9 @@ const Content: FC<ContentProps> = ({ setActiveSetting }) => {
           allMessages.concat([
             {
               role: 'assistant',
-              content: `[${res.status}]Error: ${msg || error?.message || res.statusText || 'Unknown'
-                }`,
+              content: `[${res.status}]Error: ${
+                msg || error?.message || res.statusText || 'Unknown'
+              }`,
               createdAt: Date.now(),
             },
           ])
@@ -204,10 +205,6 @@ const Content: FC<ContentProps> = ({ setActiveSetting }) => {
       [current]: true,
     }));
     try {
-      const md = await createOpenjourney({
-        prompt: content
-      });
-      console.log(md, 'data');
       const res = await fetch('/api/images', {
         method: 'POST',
         body: JSON.stringify({

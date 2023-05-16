@@ -1,10 +1,10 @@
 /* eslint-disable no-console */
 import type { APIRoute } from 'astro';
 import { loadBalancer } from '@utils/server';
-import { createOpenjourney } from 'replicate-fetch';
+// import { createOpenjourney } from 'replicate-fetch';
 import { SupportedImageModels } from '@configs';
 import { apiKeyStrategy, apiKeys, baseURL, config, password as pwd } from '.';
-
+import Replicate from 'replicate';
 export { config };
 
 export const post: APIRoute = async ({ request }) => {
@@ -40,11 +40,14 @@ export const post: APIRoute = async ({ request }) => {
 
   try {
     if ((model as SupportedImageModels) === 'Midjourney') {
-      // const len = size?.split('x')?.[0] ?? 256;
-      const data = await createOpenjourney({
-        prompt,
+      const replicate = new Replicate({
+        auth: process.env.REPLICATE_API_TOKEN,
       });
-      console.log(data, 'data');
+
+      const model =
+        'stability-ai/stable-diffusion:db21e45d3f7023abc2a46ee38a23973f6dce16bb082a930b0c49861f96d1e5bf';
+      const input = { prompt };
+      const data = await replicate.run(model, { input });
       return new Response(
         JSON.stringify({
           data: data ? data : [],
@@ -78,7 +81,6 @@ export const post: APIRoute = async ({ request }) => {
         { status: 200 }
       );
     }
-
   } catch (e) {
     return new Response(JSON.stringify({ msg: e?.message || e?.stack || e }), {
       status: 500,
