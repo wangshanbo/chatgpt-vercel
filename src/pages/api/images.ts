@@ -40,47 +40,46 @@ export const post: APIRoute = async ({ request }) => {
 
   try {
     if ((model as SupportedImageModels) === 'Midjourney') {
-      const len = size?.split('x')?.[0] ?? 256;
+      // const len = size?.split('x')?.[0] ?? 256;
       const data = await createOpenjourney({
         prompt,
-        width: Number(len),
-        height: Number(len),
       });
       console.log(data, 'data');
       return new Response(
         JSON.stringify({
-          data: data ?? [],
+          data: data ? data : [],
+        }),
+        { status: 200 }
+      );
+    } else {
+      const image = await fetch(`https://${baseURL}/v1/images/generations`, {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${key}`,
+        },
+        method: 'POST',
+        body: JSON.stringify({
+          prompt,
+          size,
+          n,
+        }),
+      });
+      const data = await image.json();
+      const { data: images = [], error } = data;
+      // error from openapi
+      if (error?.message) {
+        throw new Error(error.message);
+      }
+
+      return new Response(
+        JSON.stringify({
+          data: images?.map((img) => img.url) || [],
         }),
         { status: 200 }
       );
     }
-    const image = await fetch(`https://${baseURL}/v1/images/generations`, {
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${key}`,
-      },
-      method: 'POST',
-      body: JSON.stringify({
-        prompt,
-        size,
-        n,
-      }),
-    });
-    const data = await image.json();
-    const { data: images = [], error } = data;
-    // error from openapi
-    if (error?.message) {
-      throw new Error(error.message);
-    }
 
-    return new Response(
-      JSON.stringify({
-        data: images?.map((img) => img.url) || [],
-      }),
-      { status: 200 }
-    );
   } catch (e) {
-    console.log('Error', e);
     return new Response(JSON.stringify({ msg: e?.message || e?.stack || e }), {
       status: 500,
     });
