@@ -35,6 +35,7 @@ specifiers:
   markdown-it: ^13.0.1
   markdown-it-highlightjs: ^4.0.1
   markdown-it-kbd: ^2.2.2
+  markdown-it-video: ^0.6.3
   prettier: ^2.8.4
   prettier-plugin-astro: ^0.8.0
   punycode: ^2.3.0
@@ -64,6 +65,7 @@ dependencies:
   markdown-it: 13.0.1
   markdown-it-highlightjs: 4.0.1
   markdown-it-kbd: 2.2.2
+  markdown-it-video: 0.6.3
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   replicate: 0.12.1
@@ -3694,6 +3696,10 @@ packages:
   /markdown-it-kbd/2.2.2:
     resolution: {integrity: sha512-J5qVHtLuxh1HTJcl5xhopiFpf6fnHIBY0OO1akGHf2KW0VwQLYhsip/bkiTJFoEZqhssxQuUBY1LO5/SbCrB6g==}
     engines: {node: '>=6.0.0'}
+    dev: false
+
+  /markdown-it-video/0.6.3:
+    resolution: {integrity: sha512-T4th1kwy0OcvyWSN4u3rqPGxvbDclpucnVSSaH3ZacbGsAts964dxokx9s/I3GYsrDCJs4ogtEeEeVP18DQj0Q==}
     dev: false
 
   /markdown-it/13.0.1:
