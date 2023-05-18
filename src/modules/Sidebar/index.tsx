@@ -62,17 +62,17 @@ const Sidebar: FC<{
           ),
         }
       : null,
-    password != 'null'
-      ? {
-          key: '4',
-          label: (
-            <div onClick={() => onAdd('video')}>
-              <i className="ri-video-line align-bottom mr-1" />
-              {i18n.action_add_video}
-            </div>
-          ),
-        }
-      : null,
+    // password != 'null'
+    //   ? {
+    //       key: '4',
+    //       label: (
+    //         <div onClick={() => onAdd('video')}>
+    //           <i className="ri-video-line align-bottom mr-1" />
+    //           {i18n.action_add_video}
+    //         </div>
+    //       ),
+    //     }
+    //   : null,
     {
       key: '3',
       label: (
