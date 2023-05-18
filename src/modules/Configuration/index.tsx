@@ -186,7 +186,7 @@ const Configuration: FC<ConfigurationProps> = ({
             onChange={(imageSize) => updateConfigsAndStorages({ imageSize })}
           />
         </div>
-        <div>
+        {/* <div>
           <div className="mb-2">{i18n.config_images_count}</div>
           <Slider
             className="w-full"
@@ -200,7 +200,7 @@ const Configuration: FC<ConfigurationProps> = ({
               updateConfigsAndStorages({ imagesCount })
             }
           />
-        </div>
+        </div> */}
       </div>
     </div>
   );

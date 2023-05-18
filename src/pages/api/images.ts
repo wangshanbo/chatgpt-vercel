@@ -63,7 +63,6 @@ export const post: APIRoute = async ({ request }) => {
       const replicate = new Replicate({
         auth: process.env.REPLICATE_API_TOKEN,
       });
-
       const model =
         'ai-forever/kandinsky-2:601eea49d49003e6ea75a11527209c4f510a93e2112c969d548fbb45b9c4f19f';
 
@@ -73,6 +72,8 @@ export const post: APIRoute = async ({ request }) => {
         height: Number(size.split('x')[1]),
       };
       const data = await replicate.run(model, { input });
+      console.log(data);
+
       return new Response(
         JSON.stringify({
           data: data ? data : [],

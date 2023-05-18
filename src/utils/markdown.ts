@@ -1,6 +1,7 @@
 import MarkdownIt from 'markdown-it';
 import mdHighlight from 'markdown-it-highlightjs';
 import mdKbd from 'markdown-it-kbd';
+import videoPlugin from 'markdown-it-video';
 
 const preCopyPlugin = (md: MarkdownIt) => {
   // Override the default renderer for code blocks
@@ -27,6 +28,7 @@ const markdown = MarkdownIt({
   .use(mdHighlight, {
     inline: true,
   })
+  .use(videoPlugin)
   .use(mdKbd)
   .use(preCopyPlugin);
 

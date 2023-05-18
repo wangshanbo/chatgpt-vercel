@@ -51,7 +51,7 @@ const Sidebar: FC<{
         </div>
       ),
     },
-    password != '17706712105'
+    password != 'null'
       ? {
           key: '2',
           label: (
@@ -62,16 +62,17 @@ const Sidebar: FC<{
           ),
         }
       : null,
-    // password != '17706712105' ?
-    //   {
-    //     key: '4',
-    //     label: (
-    //       <div onClick={() => onAdd('video')}>
-    //         <i className="ri-image-line align-bottom mr-1" />
-    //         {i18n.action_add_video}
-    //       </div>
-    //     ),
-    //   } : null,
+    password != 'null'
+      ? {
+          key: '4',
+          label: (
+            <div onClick={() => onAdd('video')}>
+              <i className="ri-video-line align-bottom mr-1" />
+              {i18n.action_add_video}
+            </div>
+          ),
+        }
+      : null,
     {
       key: '3',
       label: (
