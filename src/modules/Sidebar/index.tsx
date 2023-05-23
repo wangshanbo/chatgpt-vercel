@@ -51,7 +51,7 @@ const Sidebar: FC<{
         </div>
       ),
     },
-    password != 'null'
+    password != '17706712105'
       ? {
           key: '2',
           label: (

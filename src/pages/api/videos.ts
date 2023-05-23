@@ -4,7 +4,6 @@ import { loadBalancer } from '@utils/server';
 import { apiKeyStrategy, apiKeys, baseURL, config, password as pwd } from '.';
 import Replicate from 'replicate';
 export { config };
-
 export const post: APIRoute = async ({ request }) => {
   if (!baseURL) {
     return new Response(JSON.stringify({ msg: 'No LOCAL_PROXY provided' }), {
