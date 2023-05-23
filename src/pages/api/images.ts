@@ -59,6 +59,25 @@ export const post: APIRoute = async ({ request }) => {
         }),
         { status: 200 }
       );
+    } else if ((model as SupportedImageModels) === 'MidjourneyV5') {
+      const replicate = new Replicate({
+        auth: process.env.REPLICATE_API_TOKEN,
+      });
+      const model =
+        'prompthero/openjourney-v4:e8818682e72a8b25895c7d90e889b712b6edfc5151f145e3606f21c1e85c65bf';
+      const input = {
+        prompt,
+        width: Number(size.split('x')[0]),
+        height: Number(size.split('x')[1]),
+      };
+      const data = await replicate.run(model, { input });
+
+      return new Response(
+        JSON.stringify({
+          data: data ? data : [],
+        }),
+        { status: 200 }
+      );
     } else if ((model as SupportedImageModels) === 'kandinsky-2') {
       const replicate = new Replicate({
         auth: process.env.REPLICATE_API_TOKEN,
@@ -72,7 +91,6 @@ export const post: APIRoute = async ({ request }) => {
         height: Number(size.split('x')[1]),
       };
       const data = await replicate.run(model, { input });
-      console.log(data);
 
       return new Response(
         JSON.stringify({

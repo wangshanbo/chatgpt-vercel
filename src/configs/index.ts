@@ -20,6 +20,7 @@ export const defaultModel: SupportedModel = 'gpt-3.5-turbo';
 export const supportedImageModels = [
   'DALL-E',
   'Midjourney',
+  'MidjourneyV5',
   'kandinsky-2',
 ] as const;
 
