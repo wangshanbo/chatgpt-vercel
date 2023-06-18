@@ -100,7 +100,7 @@ const MessageInput: FC<{
               }
             }}
             size="large"
-            autoSize={{ minRows: 1, maxRows: 5 }}
+            autoSize={{ minRows: 2, maxRows: 8 }}
             allowClear
           />
           {streamMessage && loading ? (

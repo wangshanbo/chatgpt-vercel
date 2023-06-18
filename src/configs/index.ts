@@ -1,38 +1,25 @@
 import { Conversation, GlobalConfig } from '@interfaces';
-
 export const globalConfigLocalKey = 'GLOBAL_CONFIG_LOCAL';
 export const localConversationKey = 'LOCAL_CONVERSATION';
-
-// From https://platform.openai.com/docs/models/model-endpoint-compatibility
 export const supportedModels = [
   'gpt-4',
-  'gpt-4-0314',
-  'gpt-4-32k',
-  'gpt-4-32k-0314',
   'gpt-3.5-turbo',
   'gpt-3.5-turbo-0301',
+  'gpt-3.5-turbo-16k-0613',
 ] as const;
 
 export type SupportedModel = (typeof supportedModels)[number];
-
-export const defaultModel: SupportedModel = 'gpt-3.5-turbo';
-// 'deforum_stable_diffusion'
+export const defaultModel: SupportedModel = 'gpt-3.5-turbo-16k-0613';
 export const supportedImageModels = [
   'DALL-E',
   'Midjourney',
   'MidjourneyV5',
   'kandinsky-2',
 ] as const;
-
 export type SupportedImageModels = (typeof supportedImageModels)[number];
-
 export const defaultImageModel: SupportedImageModels = 'DALL-E';
-
-// From https://platform.openai.com/docs/api-reference/images/create
 export const supportedImgSizes = ['256x256', '512x512', '1024x1024'] as const;
-
 export type SupportedImgSize = (typeof supportedImgSizes)[number];
-
 export const supportedLanguages = [
   {
     label: '简体中文',
