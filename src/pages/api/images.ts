@@ -50,7 +50,8 @@ export const post: APIRoute = async ({ request }) => {
         prompt,
         num_outputs: Number(n),
         width: Number(size.split('x')[0]),
-        height: Number(size.split('x')[1]),
+        height:
+          Number(size.split('x')[0]) == 1024 ? 768 : Number(size.split('x')[1]),
       };
       const data = await replicate.run(model, { input });
       return new Response(
@@ -68,7 +69,8 @@ export const post: APIRoute = async ({ request }) => {
       const input = {
         prompt,
         width: Number(size.split('x')[0]),
-        height: Number(size.split('x')[1]),
+        height:
+          Number(size.split('x')[0]) == 1024 ? 768 : Number(size.split('x')[1]),
       };
       const data = await replicate.run(model, { input });
 
