@@ -3,13 +3,13 @@ export const globalConfigLocalKey = 'GLOBAL_CONFIG_LOCAL';
 export const localConversationKey = 'LOCAL_CONVERSATION';
 export const supportedModels = [
   'gpt-4',
+  'gpt-4-32k',
   'gpt-3.5-turbo',
-  'gpt-3.5-turbo-0301',
-  'gpt-3.5-turbo-16k-0613',
+  'gpt-3.5-turbo-16k',
 ] as const;
 
 export type SupportedModel = (typeof supportedModels)[number];
-export const defaultModel: SupportedModel = 'gpt-3.5-turbo-16k-0613';
+export const defaultModel: SupportedModel = 'gpt-3.5-turbo-16k';
 export const supportedImageModels = [
   'DALL-E',
   'Midjourney',

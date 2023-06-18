@@ -113,7 +113,6 @@ const Configuration: FC<ConfigurationProps> = ({
               label: model,
               value: model,
             }))}
-            disabled={true}
             onChange={(model) => updateConfigsAndStorages({ model })}
           />
         </div>
