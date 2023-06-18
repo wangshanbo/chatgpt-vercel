@@ -13,7 +13,6 @@ export const defaultModel: SupportedModel = 'gpt-3.5-16k';
 export const supportedImageModels = [
   'DALL-E',
   'Midjourney',
-  'MidjourneyV5',
   'kandinsky-2',
 ] as const;
 export type SupportedImageModels = (typeof supportedImageModels)[number];
