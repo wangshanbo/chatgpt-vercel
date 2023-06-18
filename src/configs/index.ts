@@ -4,12 +4,12 @@ export const localConversationKey = 'LOCAL_CONVERSATION';
 export const supportedModels = [
   'gpt-4',
   'gpt-4-32k',
-  'gpt-3.5',
-  'gpt-3.5-16k',
+  'gpt-3.5-turbo',
+  'gpt-3.5-turbo-16k',
 ] as const;
 
 export type SupportedModel = (typeof supportedModels)[number];
-export const defaultModel: SupportedModel = 'gpt-3.5-16k';
+export const defaultModel: SupportedModel = 'gpt-3.5-turbo-16k';
 export const supportedImageModels = [
   'DALL-E',
   'Midjourney',
