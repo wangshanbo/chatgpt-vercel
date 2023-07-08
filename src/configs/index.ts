@@ -2,8 +2,8 @@ import { Conversation, GlobalConfig } from '@interfaces';
 export const globalConfigLocalKey = 'GLOBAL_CONFIG_LOCAL';
 export const localConversationKey = 'LOCAL_CONVERSATION';
 export const supportedModels = [
-  'gpt-4',
-  'gpt-4-32k',
+  // 'gpt-4',
+  // 'gpt-4-32k',
   'gpt-3.5-turbo',
   'gpt-3.5-turbo-16k',
 ] as const;
