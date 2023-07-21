@@ -67,7 +67,7 @@ const Content: FC<ContentProps> = ({ setActiveSetting }) => {
     let tempMessage = '';
     const input: Message[] = [
       {
-        role: 'user1',
+        role: 'assistant',
         content,
         createdAt: Date.now(),
       },
@@ -193,7 +193,7 @@ const Content: FC<ContentProps> = ({ setActiveSetting }) => {
     const current = currentId;
     const allMessages: Message[] = messages.concat([
       {
-        role: 'user1',
+        role: 'assistant',
         content,
         createdAt: Date.now(),
       },
@@ -265,7 +265,7 @@ const Content: FC<ContentProps> = ({ setActiveSetting }) => {
     const current = currentId;
     const allMessages: Message[] = messages.concat([
       {
-        role: 'user1',
+        role: 'assistant',
         content,
         createdAt: Date.now(),
       },
