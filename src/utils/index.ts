@@ -51,13 +51,8 @@ export const parseConversation = (text: string): Omit<Conversation, 'id'> => {
   const texts = text.split(/## (user|assistant):\n/).filter(Boolean);
   const messages: Message[] = [];
   texts.forEach((content, index) => {
-    if (!['user', 'user1', 'assistant'].includes(content)) {
-      if (texts[index - 1] === 'user1') {
-        messages.push({
-          role: 'user1',
-          content,
-        });
-      } else if (texts[index - 1] === 'assistant') {
+    if (!['user', 'assistant'].includes(content)) {
+      if (texts[index - 1] === 'assistant') {
         messages.push({
           role: 'assistant',
           content,

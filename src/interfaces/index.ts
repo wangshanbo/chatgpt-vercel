@@ -6,7 +6,7 @@ import {
 
 export interface Message {
   content: string;
-  role: 'assistant' | 'user' | 'user1';
+  role: 'assistant' | 'user';
   createdAt?: number;
   expiredAt?: number; // for image mode
 }
