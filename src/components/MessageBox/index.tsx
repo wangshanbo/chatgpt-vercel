@@ -19,7 +19,7 @@ const MessageItem: FC<{ message: Message; index?: number }> = ({
     <div
       className={`msg-fade-in flex items-start relative ${
         index === 0 ? '' : 'mt-[24px]'
-      } ${message.role === 'user' ? 'flex-row-reverse ml-16' : 'mr-6'}`}
+      } ${message.role === 'user1' ? 'flex-row-reverse ml-16' : 'mr-6'}`}
     >
       {message.role === 'assistant' ? (
         <SystemAvatar className="mt-[14px] mr-2" />
@@ -31,13 +31,13 @@ const MessageItem: FC<{ message: Message; index?: number }> = ({
             : markdown.render(message.content),
         }}
         className={`prose message-box shadow-sm p-4 ${
-          message.role === 'user' ? 'bg-gradient text-white' : 'bg-[#ebeced]'
+          message.role === 'user1' ? 'bg-gradient text-white' : 'bg-[#ebeced]'
         } break-words overflow-hidden rounded-[16px]`}
       />
       {createdAt ? (
         <div
           className={`message-box-time hover:visible  text-[#a1a7a8] text-sm absolute top-[-20px] ${
-            message.role === 'user' ? 'right-0' : 'left-[calc(32px+0.5rem)]'
+            message.role === 'user1' ? 'right-0' : 'left-[calc(32px+0.5rem)]'
           }`}
         >
           {createdAt}
